@@ -3,7 +3,8 @@ Java Easy Collection Kit
 
 ### What is it ?
 
-Just a bunch of specialized Java collections (some quite generic too), with one thing in common : ** ease of use**.
+Just a bunch of specialized Java collections (some quite generic too), with one thing in common : **ease of use**.
+
 Most of them are abstract classes, meant to ease implementing standard Java collections (mostly ones I actually needed).
 
 ### Examples
@@ -32,8 +33,10 @@ Instead, elements are fetched when needed.
 This is very useful, for example, when working with databases: A query results can be used as a list of records 
 (similar to every other java list) without needing to fetch thousands of useless records.
 
-Again, implementing this List is easy: only one `fetch()` method has to be implemented, with an optional `count()` method
-for performance (in case it is possible to know the number of elemnts without fetching them all - such as a database COUNT statement).
+Again, implementing this List is easy: only one `fetch()` method has to be implemented, 
+with an optional `count()` method for performance (in case it is possible to know the number of elemnts 
+without fetching them all - such as a database COUNT statement).
 
-All operations (even adding/removing elements) are supported without ever fetching unnecessary elements (yes, even removing 
-elements that aren't fetched yet), and work exactly as if all elements were fetched in the first place (minus the performance hit).
+All operations (even adding/removing elements) are supported without ever fetching unnecessary elements 
+(yes, even removing elements that aren't fetched yet), and work exactly as if all elements were fetched 
+in the first place (minus the performance hit).
