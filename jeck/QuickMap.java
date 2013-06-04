@@ -1,6 +1,7 @@
 package jeck;
 
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
@@ -58,6 +59,29 @@ public class QuickMap<K, V> implements Map<K, V> {
 	public QuickMap(Map<K, V> map, K key1, V value1, Object... elements) {
 		this(map, key1.getClass(), value1.getClass(), QuickMap.concat_all(key1,
 				value1, elements));
+	}
+
+	/**
+	 * Same as {@link #QuickMap(Map, Object...)}, using a {@link HashMap}
+	 */
+	public QuickMap(Object... elements) {
+		this(new HashMap<K, V>(), elements);
+	}
+
+	/**
+	 * Same as {@link #QuickMap(Map, Class, Class, Object...)}, using a
+	 * {@link HashMap}
+	 */
+	public QuickMap(Class<K> keyType, Class<V> valueType, Object... elements) {
+		this(new HashMap<K, V>(), keyType, valueType, elements);
+	}
+
+	/**
+	 * Same as {@link #QuickMap(Map, Object, Object, Object...)}, using a
+	 * {@link HashMap}
+	 */
+	public QuickMap(K key1, V value1, Object... elements) {
+		this(new HashMap<K, V>(), key1, value1, elements);
 	}
 
 	// TODO Auto-generated delegate
