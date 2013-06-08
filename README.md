@@ -40,3 +40,24 @@ without fetching them all - such as a database COUNT statement).
 All operations (even adding/removing elements) are supported without ever fetching unnecessary elements 
 (yes, even removing elements that aren't fetched yet), and work exactly as if all elements were fetched 
 in the first place (minus the performance hit).
+
+#### FilteredList
+
+A `FilteredList` is a `List` implementation that is based on another List (the base list), 
+but only shows elements satisfying a given condition.
+
+It is fully synchronized with the base list, so all operations are "passed through",
+allowing even modification operations to affect the base list (likewise, any modification 
+to the base list automatically affects the filtered list).
+
+In order for elements added (or replaced) to the filtered list (and thus to the base list) 
+to be considered members of the list (so they don't "disappear" after being added), a 
+`FilteredList` can modify each element before it is inserted in the list so it complies with
+the condition, or reject the element if it can't possibly be part of the filtered list (This
+behavior is not enforced, so a `FilteredList` could still choose to accept invalid elements 
+as they are - they just wouldn't show up when reading the list contents).
+
+To implement a basic `FilteredList`, only the `verify` method should be implemented. Such a list 
+would reject any invalid elements, and accept all valid elements as they are.
+
+For more control over the inserted elements, the `update` method should be redefined.
