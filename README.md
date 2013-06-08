@@ -57,7 +57,7 @@ the condition, or reject the element if it can't possibly be part of the filtere
 behavior is not enforced, so a `FilteredList` could still choose to accept invalid elements 
 as they are - they just wouldn't show up when reading the list contents).
 
-To implement a basic `FilteredList`, only the `verify` method should be implemented. Such a list 
+To implement a basic `FilteredList`, only the `verify()` method should be implemented. Such a list 
 would reject any invalid elements, and accept all valid elements as they are.
 
-For more control over the inserted elements, the `update` method should be redefined.
+For more control over the inserted elements, the `update()` method should be redefined.
